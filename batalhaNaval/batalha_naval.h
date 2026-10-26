@@ -5,6 +5,6 @@
 
 void inicializarTabuleiro(char tabuleiro [TAMANHO][TAMANHO]);
 void desenharTabuleiro(char tabuleiro[TAMANHO][TAMANHO]);
-void posicionarNavio(char tabuleiro[TAMANHO][TAMANHO], int linha, int coluna);
+void posicionarNavio(char tabuleiro[TAMANHO][TAMANHO], int linha, int coluna, int tamanho, char direcao);
 
 #endif

@@ -19,7 +19,7 @@ void inicializarTabuleiro(char tabuleiro[TAMANHO][TAMANHO]){
 void desenharTabuleiro(char tabuleiro[TAMANHO][TAMANHO]){
     printf("\n   ");
     for(char c = 'A'; c < 'A' + TAMANHO; c++){
-        printf("%c", c);
+        printf("%c ", c); //Com espaço ("%c ");
     }
     printf("\n");
 
@@ -33,8 +33,20 @@ void desenharTabuleiro(char tabuleiro[TAMANHO][TAMANHO]){
     printf("\n");       //Quebra a linha;
 }
 
-void posicionarNavio(char tabuleiro[TAMANHO][TAMANHO], int linha, int coluna){
-    if(linha >= 0 && linha < TAMANHO && coluna >= 0 && coluna < TAMANHO){
-        tabuleiro[linha][coluna] = 'N';
+void posicionarNavio(char tabuleiro[TAMANHO][TAMANHO], int linha, int coluna, int tamanho, char direcao){
+    for(int i = 0; i < TAMANHO; i++){
+        int l = linha;
+        int c = coluna;
+
+        if(direcao == 'H'){
+            c += i; //Cresce para a direita, na horizontal;
+        }else if(direcao == 'V'){
+            l += i; //Cresce para baixo, na vertical;
+        }
+
+        //Verifica os limites do tabuleiro antes de colocar;
+        if(l >= 0 && l < TAMANHO && c >= 0 && c < TAMANHO){
+            tabuleiro[l][c] = 'N';
+        }
     }
 }
